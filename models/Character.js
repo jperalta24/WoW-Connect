@@ -5,9 +5,22 @@ class Character extends Model {}
 
 Character.init(
   {
+    id: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      primaryKey: true,
+      autoIncrement: true,
+    },
     characterName: {
       type: DataTypes.STRING,
       allowNull: false,
+    },
+    user_id: {
+      type: DataTypes.INTEGER,
+      references: {
+        model: "user",
+        key: "id",
+      },
     },
     faction: {
       type: DataTypes.STRING,
@@ -17,29 +30,17 @@ Character.init(
       type: DataTypes.STRING,
       allowNull: false,
     },
-    race_id: {
-      type: DataTypes.INTEGER,
+    race: {
+      type: DataTypes.STRING,
       allowNull: false,
-      references: {
-        model: "race",
-        key: "id",
-      },
     },
-    class_id: {
-      type: DataTypes.INTEGER,
+    class: {
+      type: DataTypes.STRING,
       allowNull: false,
-      references: {
-        model: "class",
-        key: "id",
-      },
     },
-    realm_id: {
-      type: DataTypes.INTEGER,
+    realm: {
+      type: DataTypes.STRING,
       allowNull: false,
-      references: {
-        model: "realm",
-        key: "id",
-      },
     },
   },
   {
@@ -50,3 +51,5 @@ Character.init(
     modelName: "character",
   }
 );
+
+module.exports = Character;

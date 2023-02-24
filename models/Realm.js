@@ -1,16 +1,16 @@
 const { Model, DataTypes } = require("sequelize");
 const sequelize = require("../config/connection");
 
-class Class extends Model {}
+class Realm extends Model {}
 
-Class.init({
+Realm.init({
   id: {
     type: DataTypes.INTEGER,
     allowNull: false,
     primaryKey: true,
     autoIncrement: true,
   },
-  classType: {
+  serverName: {
     type: DataTypes.STRING,
     allowNull: false,
   },
@@ -18,7 +18,8 @@ Class.init({
   timestamps: false,
   freezeTableName: true,
   underscored: true,
-  modelName: "class",
+  modelName: "server",
 });
 
-module.exports = Class;
+
+module.exports = Realm;
