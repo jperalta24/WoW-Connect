@@ -1,0 +1,25 @@
+const userSeeds = 
+[
+{
+email: "user1@aol.com",
+password: "password1234",
+battleTag: "BraveCraze",
+},
+{
+email: "user2@aol.com",
+password: "password1234",
+battleTag: "TraumaDelAmode",
+},
+{
+email: "user3@aol.com",
+password: "password1234",
+battleTag: "Crooked",
+},
+{
+email: "user4@aol.com",
+password: "password1234",
+battleTag: "CrawfishKing",
+},
+]
+
+module.export = userSeeds
