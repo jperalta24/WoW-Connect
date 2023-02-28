@@ -19,6 +19,13 @@ Post.init(
     description: {
       type: DataTypes.STRING,
     },
+    faction: {
+        type: DataTypes.STRING,
+        references: {
+            model: 'faction',
+            key: 'id',
+        },
+    },
     class: {
       type: DataTypes.STRING,
     },
