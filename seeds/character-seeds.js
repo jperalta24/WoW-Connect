@@ -1,5 +1,4 @@
-const characterSeeds =
-    [
+const characterSeeds =[
         // user1
         {
             characterName: "Andariuz",

@@ -1,22 +1,56 @@
-var BnetStrategy = require('passport-bnet').Strategy;
-var BNET_ID = process.env.BNET_ID
-var BNET_SECRET = process.env.BNET_SECRET
- 
-// Use the BnetStrategy within Passport.
-passport.use(new BnetStrategy({
-    clientID: BNET_ID,
-    clientSecret: BNET_SECRET,
-    callbackURL: "https://localhost:3000/auth/bnet/callback",
-    region: "us"
-}, function(accessToken, refreshToken, profile, done) {
-    return done(null, profile);
-}));
+const express = require('express');
+const path = require('path');
+const routes = require('./controllers');
+const helpers = require('./utils/helper');
+const exphbs = require('express-handlebars');
 
-app.get('/auth/bnet',
-    passport.authenticate('bnet'));
- 
-app.get('/auth/bnet/callback',
-    passport.authenticate('bnet', { failureRedirect: '/' }),
-    function(req, res){
-        res.redirect('/');
-    });
+const session = require('express-session');
+const SequelizeStore = require('connect-session-sequelize')(session.Store);
+//import sequelize connection
+const sequelize = require('./config/connection');
+
+const app = express();
+const PORT = process.env.PORT || 3001;
+
+// Uses custom helpers for Hndlbrs
+const hbs = exphbs.create({ helpers });
+
+// Set up sessions
+const sess = {
+    secret: 'Super secret secret',
+    cookie: {
+        // Stored in milliseconds
+        maxAge: 300000,
+        httpOnly: true,
+        secure: false,
+        sameSite: 'strict',
+    },
+    resave: false,
+    saveUninitialized: true,
+    store: new SequelizeStore({
+        db: sequelize
+    })
+};
+
+app.use(session(sess));
+
+// Inform Express.js to use Handlebars.js as the default template engine
+app.engine('handlebars', hbs.engine);
+app.set('view engine', 'handlebars');
+
+
+
+
+// middleware
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+app.use(express.static(path.join(__dirname, 'public')));
+
+// Set up for the routes
+app.use(routes);
+
+// sync sequelize models to the database, then turn on the server
+sequelize.sync({ force: false }).then(() => {
+    app.listen(PORT, () => console.log(`Sever listening on http://localhost:${PORT}`));
+});
+

@@ -3,8 +3,8 @@ const { request } = require("express");
 const { User, Character, Post } = require("../../models");
 const withAuth = require("../../utils/auth");
 
-//create a new character
-router.post("/", withAuth, async (req, res) => {
+//create a new character-- Add withAuth
+router.post("/", async (req, res) => {
   try {
     const newCharacter = await Character.create({
       // spread operator is used to create a new object with the same properties as req.body. By doing this,
@@ -18,8 +18,8 @@ router.post("/", withAuth, async (req, res) => {
   }
 });
 
-// edit a character
-router.put("/:id", withAuth, async (req, res) => {
+// edit a character-- Add withAuth
+router.put("/:id", async (req, res) => {
   try {
     const updatedCharacter = await Character.update(
       {
@@ -46,8 +46,8 @@ router.put("/:id", withAuth, async (req, res) => {
   }
 });
 
-// delete a character
-router.delete("/:id", withAuth, async (req, res) => {
+// delete a character-- Add withAuth
+router.delete("/:id", async (req, res) => {
   try {
     const characterData = await Character.destroy({
       where: {
