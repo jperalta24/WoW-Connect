@@ -28,11 +28,12 @@ router.post("/", async (req, res) => {
 
 // post request to log in a user
 router.post("/login", async (req, res) => {
+  try{
   const userData = await User.findOne({
-    where: { username: req.body.username },
+    where: { email: req.body.email },
   });
   if (!userData) {
-    res.status(404).json({ message: "invalid username" });
+    res.status(404).json({ message: "invalid email" });
     return;
   }
   const passwordData = await userData.checkPassword(req.body.password);
@@ -42,10 +43,13 @@ router.post("/login", async (req, res) => {
   }
   req.session.save(() => {
     (req.session.userId = userData.id),
-      (req.session.username = userData.username),
+      (req.session.email = userData.email),
       (req.session.loggedIn = true);
     res.status(200).json({ message: "logged in" });
   });
+}catch{
+  res.status(500).json({message: 'user not created'})
+}
 });
 
 // post request to log out a user -- Add withAuth

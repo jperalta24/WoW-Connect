@@ -21,13 +21,10 @@ router.get('/', async (req, res) => {
 
   router.get('/post/:id', async (req, res) => {
     try {
-      const postData = await Post.findByPk(req.params.id, {
+      const postData = await Post.findOne({
+        where: { id: req.params.id},
         include: [
-          User,
-          {
-            model: Comment,
-            include: [User],
-          },
+          {model: User, attributes: ['battleTag']}
         ],
       });
   
