@@ -2,20 +2,19 @@ const router = require('express').Router();
 const { Post } = require('../models/');
 const withAuth = require('../utils/auth');
 // -- Add withAuth
-router.get('/', async (req, res) => {
+router.get('/', withAuth, async (req, res) => {
     try {
-      const postData = await Post.findAll({
-        where: {
-            userId: req.session.userId,
-        }
-      });
-  
-      const posts = postData.map((post) => post.get({ plain: true }));
-  
-      res.render('allpostsadmin', {
-        layout: "dashboard", 
-        posts, 
-      });
+     // Fetch all posts for the logged-in user
+     const postData = await Post.findAll({
+      where: { userId: req.session.userId },
+      include: [{ model: User, attributes: ["username"] }],
+    });
+
+    // Serialize the data
+    const posts = postData.map((post) => post.get({ plain: true }));
+
+    // Render the dashboard template with the serialized data and session status
+    res.render("dashboard", { posts, loggedIn: req.session.loggedIn });
     } catch (err) {
      res.redirect('login')
     }

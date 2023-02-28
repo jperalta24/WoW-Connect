@@ -1,66 +1,55 @@
 const { Model, DataTypes } = require("sequelize");
-const bcrypt = require("bcrypt");
+
 const sequelize = require("../config/connection");
 
-class Post extends Model { };
+class Post extends Model {}
 
-Post.init({
+Post.init(
+  {
     id: {
-        type: DataTypes.INTEGER,
-        allowNull: false,
-        primaryKey: true,
-        autoIncrement: true,
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      primaryKey: true,
+      autoIncrement: true,
     },
     name: {
-        type: DataTypes.STRING,
-        allowNull: false,
+      type: DataTypes.STRING,
+      allowNull: false,
     },
     description: {
-        type: DataTypes.STRING,
+      type: DataTypes.STRING,
     },
     class: {
-        type: DataTypes.STRING,
-        references: {
-            model: 'class',
-            key: 'id',
-        },
+      type: DataTypes.STRING,
     },
+
     role: {
-        type: DataTypes.STRING,
-        references: {
-            model: 'role',
-            key: 'id',
-        },
+      type: DataTypes.STRING,
     },
     realm: {
-        type: DataTypes.STRING,
-        references: {
-            model: 'realm',
-            key: 'id',
-        },
+      type: DataTypes.STRING,
     },
+
     date_created: {
-        type: DataTypes.DATE,
-        allowNull: false,
-        defaultValue: DataTypes.NOW,
+      type: DataTypes.DATE,
+      allowNull: false,
+      defaultValue: DataTypes.NOW,
     },
     user_id: {
-        type: DataTypes.INTEGER,
-        references: {
-            model: 'user',
-            key: 'id',
-        },
-    }
-
-},
-    {
-        sequelize,
-        timestamps: false,
-        freezeTableName: true,
-        underscored: true,
-        modelName: "post",
-    }
+      type: DataTypes.INTEGER,
+      references: {
+        model: "user",
+        key: "id",
+      },
+    },
+  },
+  {
+    sequelize,
+    timestamps: false,
+    freezeTableName: true,
+    underscored: true,
+    modelName: "post",
+  }
 );
-
 
 module.exports = Post;
