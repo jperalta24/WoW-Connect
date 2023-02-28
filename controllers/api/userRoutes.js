@@ -1,6 +1,15 @@
 const router = require("express").Router();
 const { User, Character } = require("../../models");
-const withAuth = require("../../utils/auth");
+// const withAuth = require("../../utils/auth");
+
+router.get("/", async (req, res) => {
+  try {
+    const allUsers = await User.findAll()
+    res.status(200).json(allUsers)
+  } catch (err) {
+    res.status(500).json(err);
+  }
+})
 
 // post request to sign up a new user
 router.post("/", async (req, res) => {
@@ -39,8 +48,8 @@ router.post("/login", async (req, res) => {
   });
 });
 
-// post request to log out a user
-router.post("/logout", withAuth, async (req, res) => {
+// post request to log out a user -- Add withAuth
+router.post("/logout", async (req, res) => {
   try {
     if (req.session.loggedIn) {
       const userData = await req.session.destroy(() => {
@@ -50,4 +59,7 @@ router.post("/logout", withAuth, async (req, res) => {
   } catch (err) {
     res.status(400).end();
   }
+
 });
+
+module.exports = router

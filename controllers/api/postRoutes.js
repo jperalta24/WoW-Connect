@@ -33,8 +33,8 @@ router.get('/:id', async (req, res) => {
 });
 
 
-//create a new lfg post
-router.post("/", withAuth, async (req, res) => {
+//create a new lfg post -- Add withAuth
+router.post("/", async (req, res) => {
   try {
     const postData = await Post.create({
       ...req.body,
@@ -46,8 +46,8 @@ router.post("/", withAuth, async (req, res) => {
   }
 });
 
-//delete a post
-router.delete("/:id", withAuth, async (req, res) => {
+//delete a post-- Add withAuth
+router.delete("/:id", async (req, res) => {
     try {
       const postData = await Post.destroy({
         where: {
@@ -64,3 +64,4 @@ router.delete("/:id", withAuth, async (req, res) => {
 //need a pot route to update post 
 
 
+module.exports = router

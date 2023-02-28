@@ -3,16 +3,16 @@ const { Character, Post, User } = require('../models/');
 
 router.get('/', async (req, res) => {
     try {
-      const postData = await Post.findAll({
-        include: [
-          User
-        ],
-      });
+      // //const postData = await Post.findAll({
+      //  // include: [
+      //    // User
+      //  // ],
+      // //});
+  // //
+      // //const posts = postData.map((post) => post.get({ plain: true }));
   
-      const posts = postData.map((post) => post.get({ plain: true }));
-  
-      res.render('allposts', { 
-        posts, 
+      res.render('homepage', { 
+        //posts, 
       });
     } catch (err) {
       res.status(500).json(err);
