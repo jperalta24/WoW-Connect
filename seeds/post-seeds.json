@@ -2,18 +2,37 @@
     {
         "name": "Jim",
         "description": "Looking for one ranged dps for Halls of Valor",
-<<<<<<< Updated upstream
         "class": "Mage",
+        "faction":"Troll",
         "role": "Ranged",
         "realm": "Thekal",
         "user_id": "1"
-=======
-        "faction": "Horde",
+    },
+    {
+        "name": "Tim",
+        "description": "Looking for one ranged dps for Halls of Valor",
         "class": "Mage",
+        "faction":"Dread",
         "role": "Ranged",
         "realm": "Thekal",
-        "date_created": "07/27/2022",
-        "user_id": 1
->>>>>>> Stashed changes
+        "user_id": "1"
+    },
+    {
+        "name": "Tom",
+        "description": "Looking for one ranged dps for Halls of Valor",
+        "class": "Mage",
+        "faction":"Slayer",
+        "role": "Ranged",
+        "realm": "Thekal",
+        "user_id": "1"
+    },
+    {
+        "name": "Lucy",
+        "description": "Looking for one ranged dps for Halls of Valor",
+        "class": "Coyote",
+        "faction":"Dragon",
+        "role": "Ranged",
+        "realm": "Thekal",
+        "user_id": "1"
     }
 ]

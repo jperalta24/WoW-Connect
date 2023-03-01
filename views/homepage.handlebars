@@ -1,2 +1,19 @@
-<p>Welcome To Game Connect!!</p>
-<button>Login Sign Up</button>
+<div class="posts">
+  {{#each post as |post|}}
+    <div class="card">
+      <div class="card-header">
+        <h2><a class="link" href="/dashboard/edit/{{post.id}}">{{post.name}}</a></h2>
+      </div>
+      <div class="card-body">
+        <p>Description: {{post.description}}</p>
+        <p>Class: {{post.class}}</p>
+        <p>Faction: {{post.faction}}</p>
+        <p>Role: {{post.role}}</p>
+        <p>Realm: {{post.realm}}</p>
+        <p>{{battleTag}}</p>
+      </div>
+      <input type="hidden" name="post-id" value="{{post.id}}" />
+      <button class="btn" id="del-post-b">Respond</button>
+    </div>
+  {{/each}}
+</div>
