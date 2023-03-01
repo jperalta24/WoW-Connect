@@ -2,9 +2,18 @@
     {
         "name": "Jim",
         "description": "Looking for one ranged dps for Halls of Valor",
+<<<<<<< Updated upstream
         "class": "Mage",
         "role": "Ranged",
         "realm": "Thekal",
         "user_id": "1"
+=======
+        "faction": "Horde",
+        "class": "Mage",
+        "role": "Ranged",
+        "realm": "Thekal",
+        "date_created": "07/27/2022",
+        "user_id": 1
+>>>>>>> Stashed changes
     }
 ]
