@@ -35,7 +35,7 @@ const loginFormHandler = async (event) => {
     if (name && email && password) {
       const response = await fetch('/api/user', {
         method: 'POST',
-        body: JSON.stringify({ name, email, password }),
+        body: JSON.stringify({ battleTag, email, password }),
         headers: { 'Content-Type': 'application/json' },
       });
   

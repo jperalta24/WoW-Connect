@@ -4,8 +4,10 @@ const { User, Character } = require("../../models");
 
 router.get("/", async (req, res) => {
   try {
-    const allUsers = await User.findAll()
-    res.status(200).json(allUsers)
+    const userData = await User.findOne({
+      where: {id: req.session.userId}
+    })
+    res.status(200).json(userData);
   } catch (err) {
     res.status(500).json(err);
   }
@@ -17,7 +19,7 @@ router.post("/", async (req, res) => {
     const newUser = await User.create(req.body);
     req.session.save(() => {
       req.session.userId = newUser.id;
-      req.session.username = newUser.username;
+      req.session.email = newUser.email;
       req.session.loggedIn = true;
       res.status(200).json({ message: "new user created successfully" });
     });
