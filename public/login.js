@@ -33,9 +33,9 @@ const loginFormHandler = async (event) => {
     const password = document.querySelector('#password-signup').value.trim();
   
     if (battleTag && email && password) {
-      const response = await fetch('/api/user', {
+      const response = await fetch('/api/user/signup', {
         method: 'POST',
-        body: JSON.stringify({ battleTag, email, password }),
+        body: JSON.stringify({ email, password, battleTag }),
         headers: { 'Content-Type': 'application/json' },
       });
   
@@ -45,7 +45,7 @@ const loginFormHandler = async (event) => {
       //  document.location.replace('/dashboard');
         alert('sign up successful');
       } else {
-        alert(response.statusText);
+        console.log(response);
       }
     }
   };

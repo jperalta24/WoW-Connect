@@ -14,9 +14,11 @@ router.get("/", async (req, res) => {
 })
 
 // post request to sign up a new user
-router.post("/", async (req, res) => {
+router.post("/signup", async (req, res) => {
   try {
-    const newUser = await User.create(req.body);
+    console.log(req.body);
+    const newUser = await User.create({email: req.body.email, password: req.body.password, battleTag: req.body.battleTag});
+    console.log(newUser);
     req.session.save(() => {
       req.session.userId = newUser.id;
       req.session.email = newUser.email;
@@ -24,6 +26,7 @@ router.post("/", async (req, res) => {
       res.status(200).json({ message: "new user created successfully" });
     });
   } catch (err) {
+    console.log(err);
     res.status(500).json(err);
   }
 });
