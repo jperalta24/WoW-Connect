@@ -16,7 +16,7 @@ const loginFormHandler = async (event) => {
   
       if (response.ok) {
         // If successful, redirect the browser to the profile page
-        document.location.replace('/');
+        document.location.replace('/dashboard');
          //  document.location.replace('/dashboard');
       } else {
         alert(response.statusText);
@@ -28,11 +28,11 @@ const loginFormHandler = async (event) => {
   const signupFormHandler = async (event) => {
     event.preventDefault();
   
-    const name = document.querySelector('#name-signup').value.trim();
+    const battleTag = document.querySelector('#name-signup').value.trim();
     const email = document.querySelector('#email-signup').value.trim();
     const password = document.querySelector('#password-signup').value.trim();
   
-    if (name && email && password) {
+    if (battleTag && email && password) {
       const response = await fetch('/api/user', {
         method: 'POST',
         body: JSON.stringify({ battleTag, email, password }),
@@ -40,7 +40,8 @@ const loginFormHandler = async (event) => {
       });
   
       if (response.ok) {
-        document.location.replace('/');
+        console.log('logged in successfully', response);
+        // document.location.replace('/');
       //  document.location.replace('/dashboard');
         alert('sign up successful');
       } else {
@@ -52,5 +53,5 @@ const loginFormHandler = async (event) => {
   var loginSubmit = document.querySelector('.login-form')
   loginSubmit.addEventListener('submit', loginFormHandler);
   
-  var signUpSubmit = document.querySelector('.signup-form')
+  var signUpSubmit = document.querySelector('#signup-form')
   signUpSubmit.addEventListener('submit', signupFormHandler);

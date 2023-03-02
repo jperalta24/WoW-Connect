@@ -10,4 +10,4 @@ const logoutFormHandler = async () => {
 
 //Adds Event Listener to button with id #logout
 var logoutSubmit = document.querySelector('#logout')
-logoutSubmit.addEventListener('click', logoutFormHandler);
+if (logoutSubmit !== null) { logoutSubmit.addEventListener('click', logoutFormHandler); }

@@ -1,13 +1,13 @@
 const router = require('express').Router();
-const { Post } = require('../models/');
+const { User, Post } = require('../models/');
 const withAuth = require('../utils/auth');
 // -- Add withAuth
 router.get('/', async (req, res) => {
     try {
      // Fetch all posts for the logged-in user
      const postData = await Post.findAll({
-      // where: { user_id: req.session.userId },
-      // include: [{ model: User, attributes: ["battleTag"] }],
+      where: { user_id: req.session.userId },
+      include: [{ model: User, attributes: ["battleTag"] }],
     });
 
     // Serialize the data
