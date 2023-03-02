@@ -1,0 +1,77 @@
+<div class="wholepost">
+    <div class="text-center post-credits">
+        <h1>{{name}}</h1>
+        <p>{{description}}</p>
+        <p>Posted by {{user.name}} on {{format_date date_created}}</p>
+
+
+
+        <!--check if user logged in-->
+
+    </div>
+    {{!------------ WHOLE COMMENT AREA ------------}}
+    <div class="comment-area">
+        {{#if logged_in}}
+        <div class="addandupdat mb-5 justify-content-around row">
+            {{!------------ ADD A COMMENT ------------}}
+
+            <form class="form new-comment-form col-4 add-comment">
+                <div class="form-group add-com">
+                    <h2 for="post-comments">Add a comment:</h2>
+                    <textarea class="form-input" type="text" id="comments" name="post-comments"></textarea>
+                    <button class="btn btn-primary submitBtn" type="submit" data-id="{{id}}">Submit</button>
+                </div>
+            </form>
+
+            {{!------------ UPDATE COMMENT ------------}}
+            {{#if match}}
+            <div class="col-4 update-post mb-2">
+                <div class="">
+                    <h2>Update post: </h2>
+                    <form class="form new-post-form">
+                        <div class="form-group">
+                            <label for="post-name-updates">Post name:</label>
+                            <input class="form-input" type="text" id="post-name-updates" name="post-name-updates" />
+                        </div>
+                        <div class="form-group">
+                            <label for="post-desc-updates">Description:</label>
+                            <textarea class="form-input" id="post-desc-updates" name="post-desc-updates"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <button class="btn btn-sm btn-secondary updateBtn" update-id="{{id}}">UPDATE</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        {{/if}}
+        {{/if}}
+        {{#if comments.length}}
+        <!--check if comments exist-->
+        {{!------- Each Comment --------}}
+        <div class="container commentsarea row">
+            <div class="comments">
+                <h4>Comments:</h4>
+                {{#each comments as |comment|}}
+                <div class="eachcomment">
+                    <p>{{comment.user.name}} on {{format_date comment.date_created}}</p>
+                    <p>{{comment.content}}</p>
+                    <div class="col-md-4">
+                        <button class="btn btn-sm btn-danger deleteBtn" data-id="{{comment.id}}">DELETE</button>
+                    </div>
+                </div>
+            </div>
+            {{/each}}
+
+            {{else}}
+            <!--if no comments exist-->
+            <div class="nocommentsarea">
+                <h4 class="nocomments">No comments</h4>
+            </div>
+        </div>
+    </div>
+</div>
+{{/if}}
+
+
+<script src="/post.js"></script>

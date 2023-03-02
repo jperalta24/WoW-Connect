@@ -1,0 +1,292 @@
+:root {
+    --bgcolor4: rgb(0, 3, 55);
+    --bgcolor2: rgb(94, 88, 180);
+    --bgcolor3: rgb(121, 115, 198);
+    --bgcolor1: rgb(40, 49, 64);
+    --bgcolor5: darkcyan;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html,
+body {
+    height: 100vh;
+    width: 100vw;
+    background-color: var(--bgcolor1) !important;
+
+}
+
+h2 {
+    color: var(--bgcolor2);
+}
+
+/* ============ NavBar ============*/
+.navbarcss {
+    background-color: var(--bgcolor1) !important;
+
+}
+
+.navbar-brand,
+.nav-link {
+    color: var(--bgcolor2);
+}
+
+nav span:hover,
+.nav-link:hover {
+    color: var(--bgcolor3);
+}
+
+/* ============ Post Page ============ */
+.post {
+    background-color: var(--bgcolor2);
+    box-shadow: 5px 10px var(--bgcolor3);
+}
+
+.post a {
+    color: var(--bgcolor4);
+    text-decoration: none;
+}
+
+.post p {
+    color: var(--bgcolor4);
+}
+
+/* ============ Login Page ============ */
+.loginarea {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+    width: 100vw;
+    justify-content: space-around;
+}
+
+.login,
+.signup {
+    padding: 15px;
+    border: 5px solid var(--bgcolor2);
+    box-shadow: 5px 10px var(--bgcolor3);
+    background-color: var(--bgcolor4);
+    width: 40%;
+
+}
+
+.login h2 {
+    display: flex;
+    justify-content: center;
+}
+
+.signup h2 {
+    display: flex;
+    justify-content: center;
+}
+
+/* ========== Form Entry Areas ========== */
+.form-group {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-left: 25px;
+    padding-right: 25px;
+    gap: 10px;
+}
+
+.form label {
+    color: var(--bgcolor2);
+}
+
+.form input {
+    background-color: var(--bgcolor3);
+    border-style: none;
+    margin: 5px;
+    justify-content: right !important;
+
+    border-radius: 5px;
+}
+
+.form textarea {
+    background-color: var(--bgcolor3);
+    border-style: none;
+    margin: 5px;
+}
+
+/* ========== Dash Board ========== */
+.dash-header {
+    align-items: center;
+    padding-left: 30px;
+
+}
+
+.dash-header h2 {
+    color: var(--bgcolor2);
+
+}
+
+h3 {
+    color: var(--bgcolor2);
+}
+
+.createpostarea {
+    width: 80vw;
+}
+
+.create-post {
+    padding: 10px;
+    border: 5px solid var(--bgcolor2);
+    box-shadow: 5px 10px var(--bgcolor3);
+    background-color: var(--bgcolor4);
+    justify-content: left;
+}
+
+.post-list {
+    padding: 10px;
+    border: 5px solid var(--bgcolor2);
+    box-shadow: 5px 10px var(--bgcolor3);
+    margin-left: 20px;
+    background-color: var(--bgcolor4);
+    justify-content: left;
+}
+
+.new-post-form textarea {
+    border-radius: 5px;
+    padding-left: 70px;
+}
+
+/* ============ Post Page ============ */
+
+.postname {
+    color: var(--bgcolor2);
+}
+
+.postname:hover {
+    color: var(--bgcolor3);
+}
+
+.post-credits {
+    width: 80vw;
+    margin: 20px auto;
+    padding: 20px;
+    color: var(--bgcolor2);
+    border: 5px solid var(--bgcolor2);
+    box-shadow: 5px 10px var(--bgcolor3);
+    background-color: var(--bgcolor4);
+}
+
+.post-credits p {
+    font-size: 30px;
+    color: var(--bgcolor3)
+}
+
+.comment-area {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.addandupdate {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.add-comment {
+    padding: 10px;
+    border: 5px solid var(--bgcolor2);
+    box-shadow: 5px 10px var(--bgcolor3);
+    margin-left: 10px;
+    background-color: var(--bgcolor4);
+    justify-content: left;
+}
+
+.add-com {
+    flex-direction: column;
+}
+
+/* .add-com textarea {
+    padding: 40px 70px;
+} */
+
+.update-post {
+    padding: 10px;
+    margin-right: 10px;
+    border: 5px solid var(--bgcolor2);
+    box-shadow: 5px 10px var(--bgcolor3);
+    background-color: var(--bgcolor4);
+    justify-content: left;
+}
+
+.eachcomment {
+    color: var(--bgcolor4);
+    background-color: var(--bgcolor2);
+    box-shadow: 5px 10px var(--bgcolor3);
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 30px;
+    margin-bottom: 20px;
+}
+
+.comments h4 {
+    color: var(--bgcolor2);
+}
+
+.nocommentsarea {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.nocomments {
+    color: var(--bgcolor2);
+    padding: 10px;
+    /* margin-right: 10px; */
+    width: 70vw;
+    border: 5px solid var(--bgcolor2);
+    box-shadow: 5px 10px var(--bgcolor3);
+    background-color: var(--bgcolor4);
+
+    text-align: center;
+
+}
+
+/* ========== Footer ========== */
+footer {
+
+    /* Footer height */
+}
+
+.footercss {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 2.5rem;
+    background-color: var(--bgcolor1);
+
+}
+
+.foot {
+    background-color: var(--bgcolor4);
+    width: 100%;
+}
+
+footer span {
+    color: var(--bgcolor2);
+}
+
+
+
+/* ========== Buttons ========== */
+.btn {
+    width: 100px;
+    justify-content: center;
+    background-color: blueviolet;
+    border-color: var(--bgcolor2);
+    color: var(--bgcolor4);
+    font-weight: 900;
+}
+
+.btn:hover {
+    background-color: var(--bgcolor5);
+}
