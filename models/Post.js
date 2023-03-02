@@ -21,10 +21,10 @@ Post.init(
     },
     faction: {
         type: DataTypes.STRING,
-        references: {
-            model: 'faction',
-            key: 'id',
-        },
+        // references: {
+        //     model: 'faction',
+        //     key: 'id',
+        // },
     },
     class: {
       type: DataTypes.STRING,
