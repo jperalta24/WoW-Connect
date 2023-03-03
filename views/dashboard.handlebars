@@ -6,7 +6,7 @@
     <div class="row m-4">
         <div class="col-md-6">
             <h3>Create a new post:</h3>
-            <form class="form new-post-form">
+            <form class="form new-post-form" id="realmForm">
                 <div class="form-group">
                     <label for="post-name">Post name:</label>
                     <input class="form-input" type="text" id="post-name" name="post-name" />
@@ -15,91 +15,74 @@
                     <label for="post-desc">description:</label>
                     <textarea class="form-input" id="post-desc" name="post-desc"></textarea>
                 </div>
-                <div class="dropdown">
-                    <button class="btn btn-secondary dropdown-toggle" type="button" id="RealmdropdownMenuButton"
-                        data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Realm
-                    </button>
-                    <div class="dropdown-menu" aria-labelledby="RealmdropdownMenuButton">
-                        <a class="dropdown-item" href="#">Amnennar</a>
-                        <a class="dropdown-item" href="#">Angerforge</a>
-                        <a class="dropdown-item" href="#">Arugal</a>
-                        <a class="dropdown-item" href="#">Ashbringer</a>
-                        <a class="dropdown-item" href="#">Ashkandi</a>
-                        <a class="dropdown-item" href="#">Atiesh</a>
-                        <a class="dropdown-item" href="#">Auberdine</a>
-                        <a class="dropdown-item" href="#">Azuresong</a>
-                        <a class="dropdown-item" href="#">Benediction</a>
-                        <a class="dropdown-item" href="#">Bloodsail Buccaneers</a>
-                        <a class="dropdown-item" href="#">Earthfury</a>
-                        <a class="dropdown-item" href="#">Earthshaker</a>
-                        <a class="dropdown-item" href="#">Eranikus</a>
-                        <a class="dropdown-item" href="#">Everlook</a>
-                        <a class="dropdown-item" href="#">Faerlina</a>
-                        <a class="dropdown-item" href="#">Firemaw</a>
-                        <a class="dropdown-item" href="#">Gehennas</a>
-                        <a class="dropdown-item" href="#">Giantstalker</a>
-                        <a class="dropdown-item" href="#">Golemagg</a>
-                        <a class="dropdown-item" href="#">Grobbulus</a>
-                        <a class="dropdown-item" href="#">Hydraxian Waterlords</a>
-                        <a class="dropdown-item" href="#">Jindo</a>
-                        <a class="dropdown-item" href="#">Lakeshire</a>
-                        <a class="dropdown-item" href="#">Maladath</a>
-                        <a class="dropdown-item" href="#">Mandokir</a>
-                        <a class="dropdown-item" href="#">Mankrik</a>
-                        <a class="dropdown-item" href="#">Mirage Raceway</a>
-                        <a class="dropdown-item" href="#">Mograine</a>
-                        <a class="dropdown-item" href="#">Nethergarde Keep</a>
-                        <a class="dropdown-item" href="#">Old Blanchy</a>
-                        <a class="dropdown-item" href="#">Pagle</a>
-                        <a class="dropdown-item" href="#">Patchwerk</a>
-                        <a class="dropdown-item" href="#">Pyrewood Village</a>
-                        <a class="dropdown-item" href="#">Razorfen</a>
-                        <a class="dropdown-item" href="#">Remulos</a>
-                        <a class="dropdown-item" href="#">Skyfury</a>
-                        <a class="dropdown-item" href="#">Sulfuras</a>
-                        <a class="dropdown-item" href="#">Sulfuron</a>
-                        <a class="dropdown-item" href="#">Thekal</a>
-                        <a class="dropdown-item" href="#">Transcendence</a>
-                        <a class="dropdown-item" href="#">Venoxis</a>
-                        <a class="dropdown-item" href="#">Westfall</a>
-                        <a class="dropdown-item" href="#">Whitemane</a>
-                        <a class="dropdown-item" href="#">Windseeker</a>
-                        <a class="dropdown-item" href="#">Yojamba</a>
-                        <a class="dropdown-item" href="#">Пламегор</a>
-                        <a class="dropdown-item" href="#">Хроми</a>
-                    </div>
-                </div>
-        </div>
-        <div class="dropdown">
-            <button class="btn btn-secondary dropdown-toggle" type="button" id="ClassdropdownMenuButton"
-                data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Class
-            </button>
-            <div class="dropdown-menu" aria-labelledby="ClassdropdownMenuButton">
-                <a class="dropdown-item" href="#">Death Knight</a>
-                <a class="dropdown-item" href="#">Druid</a>
-                <a class="dropdown-item" href="#">Hunter</a>
-                <a class="dropdown-item" href="#">Mage</a>
-                <a class="dropdown-item" href="#">Paladin</a>
-                <a class="dropdown-item" href="#">Priest</a>
-                <a class="dropdown-item" href="#">Rogue</a>
-                <a class="dropdown-item" href="#">Shaman</a>
-                <a class="dropdown-item" href="#">Warlock</a>
-                <a class="dropdown-item" href="#">Warrior</a>
-            </div>
-        </div>
-        <div class="dropdown">
-            <button class="btn btn-secondary dropdown-toggle" type="button" id="RoledropdownMenuButton"
-                data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Role
-            </button>
-            <div class="dropdown-menu" aria-labelledby="RoledropdownMenuButton">
-                <a class="dropdown-item" href="#">Tank</a>
-                <a class="dropdown-item" href="#">Melee</a>
-                <a class="dropdown-item" href="#">Ranged</a>
-                <a class="dropdown-item" href="#">Healer</a>
-            </div>
+                <select class="form-select" id="realmSelect">
+                    <option selected>Select Realm</option>
+                    <option class="dropdown-item" value="Amnennar">Amnennar</option>
+                    <option class="dropdown-item" value="Angerforge">Angerforge</option>
+                    <option class="dropdown-item" value="#">Arugal</option>
+                    <option class="dropdown-item" value="#">Ashbringer</option>
+                    <option class="dropdown-item" value="#">Ashkandi</option>
+                    <option class="dropdown-item" value="#">Atiesh</option>
+                    <option class="dropdown-item" value="#">Auberdine</option>
+                    <option class="dropdown-item" value="#">Azuresong</option>
+                    <option class="dropdown-item" value="#">Benediction</option>
+                    <option class="dropdown-item" value="#">Bloodsail Buccaneers</option>
+                    <option class="dropdown-item" value="#">Earthfury</option>
+                    <option class="dropdown-item" value="#">Earthshaker</option>
+                    <option class="dropdown-item" value="#">Eranikus</option>
+                    <option class="dropdown-item" value="#">Everlook</option>
+                    <option class="dropdown-item" value="#">Faerlina</option>
+                    <option class="dropdown-item" value="#">Firemaw</option>
+                    <option class="dropdown-item" value="#">Gehennas</option>
+                    <option class="dropdown-item" value="#">Giantstalker</option>
+                    <option class="dropdown-item" value="#">Golemagg</option>
+                    <option class="dropdown-item" value="#">Grobbulus</option>
+                    <option class="dropdown-item" value="#">Hydraxian Waterlords</option>
+                    <option class="dropdown-item" value="#">Jindo</option>
+                    <option class="dropdown-item" value="#">Lakeshire</option>
+                    <option class="dropdown-item" value="#">Maladath</option>
+                    <option class="dropdown-item" value="#">Mandokir</option>
+                    <option class="dropdown-item" value="#">Mankrik</option>
+                    <option class="dropdown-item" value="#">Mirage Raceway</option>
+                    <option class="dropdown-item" value="#">Mograine</option>
+                    <option class="dropdown-item" value="#">Nethergarde Keep</option>
+                    <option class="dropdown-item" value="#">Old Blanchy</option>
+                    <option class="dropdown-item" value="#">Pagle</option>
+                    <option class="dropdown-item" value="#">Patchwerk</option>
+                    <option class="dropdown-item" value="#">Pyrewood Village</option>
+                    <option class="dropdown-item" value="#">Razorfen</option>
+                    <option class="dropdown-item" value="#">Remulos</option>
+                    <option class="dropdown-item" value="#">Skyfury</option>
+                    <option class="dropdown-item" value="#">Sulfuras</option>
+                    <option class="dropdown-item" value="#">Sulfuron</option>
+                    <option class="dropdown-item" value="#">Thekal</option>
+                    <option class="dropdown-item" value="#">Transcendence</option>
+                    <option class="dropdown-item" value="#">Venoxis</option>
+                    <option class="dropdown-item" value="#">Westfall</option>
+                    <option class="dropdown-item" value="#">Whitemane</option>
+                    <option class="dropdown-item" value="#">Windseeker</option>
+                    <option class="dropdown-item" value="#">Yojamba</option>
+                    <option class="dropdown-item" value="#">Пламегор</option>
+                    <option class="dropdown-item" value="#">Хроми</option>
+                </select>
+                <select class="form-select" id="classSelect" aria-labelledby="ClassdropdownMenuButton">
+                    <option class="dropdown-item" value="Death Knight">Death Knight</option>
+                    <option class="dropdown-item" value="#">Druid</option>
+                    <option class="dropdown-item" value="#">Hunter</option>
+                    <option class="dropdown-item" value="#">Mage</option>
+                    <option class="dropdown-item" value="#">Paladin</option>
+                    <option class="dropdown-item" value="#">Priest</option>
+                    <option class="dropdown-item" value="#">Rogue</option>
+                    <option class="dropdown-item" value="#">Shaman</option>
+                    <option class="dropdown-item" value="#">Warlock</option>
+                    <option class="dropdown-item" value="#">Warrior</option>
+                </select>
+                <select class="form-select" id="roleSelect" aria-labelledby="RoledropdownMenuButton">
+                    <option class="dropdown-item" value="Tank">Tank</option>
+                    <option class="dropdown-item" value="#">Melee</option>
+                    <option class="dropdown-item" value="#">Ranged</option>
+                    <option class="dropdown-item" value="#">Healer</option>
+                </select>
         </div>
         <div class="form-group">
             <button type="submit" class="btn btn-primary">Create</button>
@@ -114,7 +97,9 @@
         {{#each posts as |post|}}
         <div class="card">
             <div class="card-header">
-                <h2><a class="link" href="/dashboard/edit/{{post.id}}">{{post.name}}</a></h2>
+                <h2>
+                    <option class="link" value="/dashboard/edit/{{post.id}}">{{post.name}}</option>
+                </h2>
             </div>
             <div class="card-body">
                 <p>Description: {{post.description}}</p>
@@ -139,27 +124,29 @@
 {{/if}}
 
 {{#if characters.length}}
-    <div class="col post-list">
-        <h3>Your Characters</h3>
-        {{!-- creates this section for EACH post linked by post.id --}}
-        {{#each characters as |character|}}
-        <div class="card">
-            <div class="card-header">
-                <h2><a class="link" href="/dashboard/edit/{{post.id}}">{{post.name}}</a></h2>
-            </div>
-            <div class="card-body">
-                <p>Description: {{character.characterName}}</p>
-                <p>Class: {{character.class}}</p>
-                <p>Faction: {{character.faction}}</p>
-                <p>Role: {{character.role}}</p>
-                <p>Realm: {{character.realm}}</p>
-                <p>{{battleTag}}</p>
-            </div>
-            <input type="hidden" name="character-id" value="{{character.id}}" />
-            <button class="btn" id="del-character-b">Delete</button>
+<div class="col post-list">
+    <h3>Your Characters</h3>
+    {{!-- creates this section for EACH post linked by post.id --}}
+    {{#each characters as |character|}}
+    <div class="card">
+        <div class="card-header">
+            <h2>
+                <option class="link" value="/dashboard/edit/{{post.id}}">{{post.name}}</option>
+            </h2>
         </div>
-        {{/each}}
+        <div class="card-body">
+            <p>Description: {{character.characterName}}</p>
+            <p>Class: {{character.class}}</p>
+            <p>Faction: {{character.faction}}</p>
+            <p>Role: {{character.role}}</p>
+            <p>Realm: {{character.realm}}</p>
+            <p>{{battleTag}}</p>
+        </div>
+        <input type="hidden" name="character-id" value="{{character.id}}" />
+        <button class="btn" id="del-character-b">Delete</button>
     </div>
+    {{/each}}
+</div>
 </div>
 {{!-- if there are no characters this will display --}}
 {{else}}
@@ -168,5 +155,5 @@
 </div>
 </div>
 {{/if}}
- 
-<script src="/dashboard.js"></script>
+
+<script src="dashboard.js"></script>
