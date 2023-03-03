@@ -95,22 +95,26 @@
         <h3>Current Posts:</h3>
         {{!-- creates this section for EACH post linked by post.id --}}
         {{#each posts as |post|}}
-        <div class="card">
-            <div class="card-header">
-                <h2>
-                    <option class="link" value="/dashboard/edit/{{post.id}}">{{post.name}}</option>
-                </h2>
+        <div class="postsection">
+            <div class="card postcardcss">
+                <div class="card-header postcardheader">
+                    <h2><a class="link" href="/dashboard/edit/{{post.id}}">{{post.name}}</a></h2>
+                </div>
+                <div class="card-body postcardbody">
+                    <ul>
+                        <li><b>Description</b>: {{post.description}}</li>
+                        <li><b>Class</b>: {{post.class}}</li>
+                        <li><b>Faction</b>: {{post.faction}}</li>
+                        <li><b>Role</b>: {{post.role}}</li>
+                        <li><b>Realm</b>: {{post.realm}}</li>
+                        <p>{{battleTag}}</p>
+                    </ul>
+                </div>
+                <div class="postbtnarea">
+                    <input type="hidden" name="post-id" value="{{post.id}}" />
+                    <button class="btn postbtn" id="del-post-b">Respond</button>
+                </div>
             </div>
-            <div class="card-body">
-                <p>Description: {{post.description}}</p>
-                <p>Class: {{post.class}}</p>
-                <p>Faction: {{post.faction}}</p>
-                <p>Role: {{post.role}}</p>
-                <p>Realm: {{post.realm}}</p>
-                <p>{{battleTag}}</p>
-            </div>
-            <input type="hidden" name="post-id" value="{{post.id}}" />
-            <button class="btn" id="del-post-b">Delete</button>
         </div>
         {{/each}}
     </div>
