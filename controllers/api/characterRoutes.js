@@ -3,7 +3,7 @@ const router = require("express").Router();
 const { User, Character, Post } = require("../../models");
 const withAuth = require("../../utils/auth");
 
-router.get('/', )
+
 //create a new character-- Add withAuth
 router.post("/", async (req, res) => {
   try {

@@ -137,5 +137,36 @@
 </div>
 </div>
 {{/if}}
+
+{{#if characters.length}}
+    <div class="col post-list">
+        <h3>Your Characters</h3>
+        {{!-- creates this section for EACH post linked by post.id --}}
+        {{#each characters as |character|}}
+        <div class="card">
+            <div class="card-header">
+                <h2><a class="link" href="/dashboard/edit/{{post.id}}">{{post.name}}</a></h2>
+            </div>
+            <div class="card-body">
+                <p>Description: {{character.characterName}}</p>
+                <p>Class: {{character.class}}</p>
+                <p>Faction: {{character.faction}}</p>
+                <p>Role: {{character.role}}</p>
+                <p>Realm: {{character.realm}}</p>
+                <p>{{battleTag}}</p>
+            </div>
+            <input type="hidden" name="character-id" value="{{character.id}}" />
+            <button class="btn" id="del-character-b">Delete</button>
+        </div>
+        {{/each}}
+    </div>
+</div>
+{{!-- if there are no characters this will display --}}
+{{else}}
+<div class="col-md-6 character-list">
+    <h3>No characters yet</h3>
+</div>
+</div>
+{{/if}}
  
 <script src="/dashboard.js"></script>
