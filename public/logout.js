@@ -1,11 +1,15 @@
 // Makes logout function
 const logoutFormHandler = async () => {
 
-    const response = await fetch('/api/users/logout', {
+    const response = await fetch('/api/user/logout', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
     });
-    document.location.replace('/login');
+    if (response.ok) {
+        document.location.replace('/');
+    } else {
+        alert('logged out')
+    }
 };
 
 //Adds Event Listener to button with id #logout

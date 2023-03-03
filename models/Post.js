@@ -20,15 +20,7 @@ Post.init(
       type: DataTypes.STRING,
     },
     faction: {
-<<<<<<< HEAD
       type: DataTypes.STRING,
-=======
-        type: DataTypes.STRING,
-        // references: {
-        //     model: 'faction',
-        //     key: 'id',
-        // },
->>>>>>> Spencer
     },
     class: {
       type: DataTypes.STRING,
