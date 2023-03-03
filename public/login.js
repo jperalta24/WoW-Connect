@@ -42,7 +42,7 @@ const loginFormHandler = async (event) => {
       if (response.ok) {
         console.log('logged in successfully', response);
         // document.location.replace('/');
-      //  document.location.replace('/dashboard');
+       document.location.replace('/dashboard');
         alert('sign up successful');
       } else {
         console.log(response);
