@@ -13,7 +13,7 @@ router.get('/', async (req, res) => {
       });
   
       const post = postData.map((post) => post.get({ plain: true }));
-      
+      console.log(post);
       res.render('homepage', { 
         post, loggedIn: req.session.loggedIn
       });
