@@ -15,7 +15,7 @@
         <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
-                    <form id="newPost-form">
+                    <form id="newPost-form" action="/api/post" method="POST">
                         <div class="modal-header">
                             <h5 class="modal-title" id="exampleModalLabel">{{post.name}}</h5>
                             <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
@@ -138,9 +138,11 @@
                     </ul>
                 </div>
                 <div class="postbtnarea">
-                    <input type="hidden" name="post-id" value="{{post.id}}" />
-                    <button class="btn postbtn" id="del-post-b">Edit</button>
-                </div>
+                  <button type="button" id="respond-b" class="btn btn-primary" data-bs-toggle="modal"
+                data-bs-target="#exampleModal">
+                New Post
+            </button>
+            </div>
             </div>
         </div>
         {{/each}}

@@ -51,6 +51,33 @@ console.log("postName:", req.body.postName);
   }
 });
 
+router.put("/:id", async (req, res) => {
+  try {
+    const postData = await Post.update(
+      {
+        name: req.body.name,
+        description: req.body.description,
+        faction: req.body.faction,
+        class: req.body.class,
+        role:req.body.role,
+        realm: req.body.realm,
+      },
+      {
+        where: {
+          id: req.params.id,
+        },
+      }
+    );
+    if (!postData) {
+      res.status(404).json({ message: "This id is has not post" });
+      return;
+    } (res.status(200).json({message:"Post updated successfully"}))
+  } catch (err) {
+    console.log(err)
+    res.status(500).json(err);
+  }
+});
+
 //delete a post-- Add withAuth
 router.delete("/:id", async (req, res) => {
     try {
