@@ -139,11 +139,114 @@
                 </div>
                 <div class="postbtnarea">
                   <button type="button" id="respond-b" class="btn btn-primary" data-bs-toggle="modal"
-                data-bs-target="#exampleModal">
-                New Post
+                data-bs-target="#editModal">
+                Edit Post
             </button>
             </div>
             </div>
+            <div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="editModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <form id="editPost-form">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="editModalLabel">{{post.name}}</h5>
+                            <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="mb-3">
+                                <label for="EditPost">Please fill out all fields</label>
+                                <input type="text" id="editName" class="form-control"
+                                    placeholder="Enter a name for your post" required />
+                                <input type="text" id="editDescription" class="form-control"
+                                    placeholder="Enter a description" required />
+                                <select class="form-select" id="editRealm">
+                                    <option>Select Realm</option>
+                                    <option class="dropdown-item" value="Amnennar">Amnennar</option>
+                                    <option class="dropdown-item" value="Angerforge">Angerforge</option>
+                                    <option class="dropdown-item" value="#">Arugal</option>
+                                    <option class="dropdown-item" value="#">Ashbringer</option>
+                                    <option class="dropdown-item" value="#">Ashkandi</option>
+                                    <option class="dropdown-item" value="#">Atiesh</option>
+                                    <option class="dropdown-item" value="#">Auberdine</option>
+                                    <option class="dropdown-item" value="#">Azuresong</option>
+                                    <option class="dropdown-item" value="#">Benediction</option>
+                                    <option class="dropdown-item" value="#">Bloodsail Buccaneers</option>
+                                    <option class="dropdown-item" value="#">Earthfury</option>
+                                    <option class="dropdown-item" value="#">Earthshaker</option>
+                                    <option class="dropdown-item" value="#">Eranikus</option>
+                                    <option class="dropdown-item" value="#">Everlook</option>
+                                    <option class="dropdown-item" value="#">Faerlina</option>
+                                    <option class="dropdown-item" value="#">Firemaw</option>
+                                    <option class="dropdown-item" value="#">Gehennas</option>
+                                    <option class="dropdown-item" value="#">Giantstalker</option>
+                                    <option class="dropdown-item" value="#">Golemagg</option>
+                                    <option class="dropdown-item" value="#">Grobbulus</option>
+                                    <option class="dropdown-item" value="#">Hydraxian Waterlords</option>
+                                    <option class="dropdown-item" value="#">Jindo</option>
+                                    <option class="dropdown-item" value="#">Lakeshire</option>
+                                    <option class="dropdown-item" value="#">Maladath</option>
+                                    <option class="dropdown-item" value="#">Mandokir</option>
+                                    <option class="dropdown-item" value="#">Mankrik</option>
+                                    <option class="dropdown-item" value="#">Mirage Raceway</option>
+                                    <option class="dropdown-item" value="#">Mograine</option>
+                                    <option class="dropdown-item" value="#">Nethergarde Keep</option>
+                                    <option class="dropdown-item" value="#">Old Blanchy</option>
+                                    <option class="dropdown-item" value="#">Pagle</option>
+                                    <option class="dropdown-item" value="#">Patchwerk</option>
+                                    <option class="dropdown-item" value="#">Pyrewood Village</option>
+                                    <option class="dropdown-item" value="#">Razorfen</option>
+                                    <option class="dropdown-item" value="#">Remulos</option>
+                                    <option class="dropdown-item" value="#">Skyfury</option>
+                                    <option class="dropdown-item" value="#">Sulfuras</option>
+                                    <option class="dropdown-item" value="#">Sulfuron</option>
+                                    <option class="dropdown-item" value="#">Thekal</option>
+                                    <option class="dropdown-item" value="#">Transcendence</option>
+                                    <option class="dropdown-item" value="#">Venoxis</option>
+                                    <option class="dropdown-item" value="#">Westfall</option>
+                                    <option class="dropdown-item" value="#">Whitemane</option>
+                                    <option class="dropdown-item" value="#">Windseeker</option>
+                                    <option class="dropdown-item" value="#">Yojamba</option>
+                                    <option class="dropdown-item" value="#">Пламегор</option>
+                                    <option class="dropdown-item" value="#">Хроми</option>
+                                </select>
+                                <select class="form-select" id="editClass" aria-labelledby="ClassdropdownMenuButton">
+                                    <option>Select Class</option>
+                                    <option class="dropdown-item" value="Death Knight">Death Knight</option>
+                                    <option class="dropdown-item" value="#">Druid</option>
+                                    <option class="dropdown-item" value="#">Hunter</option>
+                                    <option class="dropdown-item" value="#">Mage</option>
+                                    <option class="dropdown-item" value="#">Paladin</option>
+                                    <option class="dropdown-item" value="#">Priest</option>
+                                    <option class="dropdown-item" value="#">Rogue</option>
+                                    <option class="dropdown-item" value="#">Shaman</option>
+                                    <option class="dropdown-item" value="#">Warlock</option>
+                                    <option class="dropdown-item" value="#">Warrior</option>
+                                </select>
+                                <select class="form-select" id="editRole" aria-labelledby="RoledropdownMenuButton">
+                                    <option>Select Role</option>
+                                    <option class="dropdown-item" value="Tank">Tank</option>
+                                    <option class="dropdown-item" value="#">Melee</option>
+                                    <option class="dropdown-item" value="#">Ranged</option>
+                                    <option class="dropdown-item" value="#">Healer</option>
+                                </select>
+                                <select class="form-select" id="editFaction"
+                                    aria-labelledby="factiondropdownMenuButton">
+                                    <option>Select Alliance</option>
+                                    <option class="dropdown-item" value="Horde">Horde</option>
+                                    <option class="dropdown-item" value="Alliance">Alliance</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            <button type="submit" class="btn btn-primary" data-bs-dismiss="modal">Create</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
         </div>
         {{/each}}
     </div>
