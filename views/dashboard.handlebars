@@ -8,7 +8,7 @@
         <div class="col-md-6">
             <button type="button" id="respond-b" class="btn btn-primary" data-bs-toggle="modal"
                 data-bs-target="#exampleModal">
-                Create a new post
+                New Post
             </button>
         </div>
 
@@ -30,7 +30,7 @@
                                 <input type="text" id="postDescription-input" class="form-control"
                                     placeholder="Enter a description" required />
                                 <select class="form-select" id="realmSelect">
-                                    <option selected>Select Realm</option>
+                                    <option>Select Realm</option>
                                     <option class="dropdown-item" value="Amnennar">Amnennar</option>
                                     <option class="dropdown-item" value="Angerforge">Angerforge</option>
                                     <option class="dropdown-item" value="#">Arugal</option>
@@ -80,6 +80,7 @@
                                     <option class="dropdown-item" value="#">Хроми</option>
                                 </select>
                                 <select class="form-select" id="classSelect" aria-labelledby="ClassdropdownMenuButton">
+                                    <option>Select Class</option>
                                     <option class="dropdown-item" value="Death Knight">Death Knight</option>
                                     <option class="dropdown-item" value="#">Druid</option>
                                     <option class="dropdown-item" value="#">Hunter</option>
@@ -92,10 +93,17 @@
                                     <option class="dropdown-item" value="#">Warrior</option>
                                 </select>
                                 <select class="form-select" id="roleSelect" aria-labelledby="RoledropdownMenuButton">
+                                    <option>Select Role</option>
                                     <option class="dropdown-item" value="Tank">Tank</option>
                                     <option class="dropdown-item" value="#">Melee</option>
                                     <option class="dropdown-item" value="#">Ranged</option>
                                     <option class="dropdown-item" value="#">Healer</option>
+                                </select>
+                                <select class="form-select" id="factionSelect"
+                                    aria-labelledby="factiondropdownMenuButton">
+                                    <option>Select Alliance</option>
+                                    <option class="dropdown-item" value="Horde">Horde</option>
+                                    <option class="dropdown-item" value="Alliance">Alliance</option>
                                 </select>
                             </div>
                         </div>
@@ -121,11 +129,11 @@
                 </div>
                 <div class="card-body postcardbody">
                     <ul>
-                        <li><b>Description</b>: {{post.description}}</li>
-                        <li><b>Class</b>: {{post.class}}</li>
-                        <li><b>Faction</b>: {{post.faction}}</li>
-                        <li><b>Role</b>: {{post.role}}</li>
-                        <li><b>Realm</b>: {{post.realm}}</li>
+                        <li><b>Description:</b> {{post.description}}</li>
+                        <li><b>Class:</b> {{post.class}}</li>
+                        <li><b>Faction:</b> {{post.faction}}</li>
+                        <li><b>Role:</b> {{post.role}}</li>
+                        <li><b>Realm:</b> {{post.realm}}</li>
                         <p>{{post.user.battleTag}}</p>
                     </ul>
                 </div>

@@ -34,14 +34,19 @@ router.get('/:id', async (req, res) => {
 
 
 //create a new lfg post -- Add withAuth
-router.post("/", async (req, res) => {
+router.post("/", withAuth, async (req, res) => {
   try {
+    console.log("req.body:", req.body);
+console.log("postName:", req.body.postName);
+
     const postData = await Post.create({
       ...req.body,
       user_id: req.session.userId,
     });
+    console.log(postData);
     res.status(200).json(postData);
   } catch (err) {
+    console.log(err)
     res.status(500).json(err);
   }
 });
