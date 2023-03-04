@@ -15,11 +15,17 @@ router.get('/', async (req, res) => {
       include: [{ model: User, attributes: ["battleTag"] }]
     })
 
+    const userData = await User.findAll({
+      where: { id: req.session.userId}
+    })
+
     // Serialize the data
     const posts = postData.map((post) => post.get({ plain: true }));
     const characters = characterData.map((character) => character.get({ plain: true }));
+    const user= userData.map((user) => user.get({ plain: true }));
+    console.log(posts, characters);
     // Render the dashboard template with the serialized data and session status
-    res.render("dashboard", { posts, characters, loggedIn: req.session.loggedIn });
+    res.render("dashboard", { posts, characters, user, loggedIn: req.session.loggedIn });
   } catch (err) {
     res.redirect('login')
   }

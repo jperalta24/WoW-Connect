@@ -34,14 +34,46 @@ router.get('/:id', async (req, res) => {
 
 
 //create a new lfg post -- Add withAuth
-router.post("/", async (req, res) => {
+router.post("/", withAuth, async (req, res) => {
   try {
+    console.log("req.body:", req.body);
+console.log("postName:", req.body.postName);
+
     const postData = await Post.create({
       ...req.body,
       user_id: req.session.userId,
     });
+    console.log(postData);
     res.status(200).json(postData);
   } catch (err) {
+    console.log(err)
+    res.status(500).json(err);
+  }
+});
+
+router.put("/:id", async (req, res) => {
+  try {
+    const postData = await Post.update(
+      {
+        name: req.body.name,
+        description: req.body.description,
+        faction: req.body.faction,
+        class: req.body.class,
+        role:req.body.role,
+        realm: req.body.realm,
+      },
+      {
+        where: {
+          id: req.params.id,
+        },
+      }
+    );
+    if (!postData) {
+      res.status(404).json({ message: "This id is has not post" });
+      return;
+    } (res.status(200).json({message:"Post updated successfully"}))
+  } catch (err) {
+    console.log(err)
     res.status(500).json(err);
   }
 });
