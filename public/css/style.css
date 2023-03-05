@@ -114,6 +114,56 @@ nav span:hover,
     margin: 5px;
 }
 
+/* ========== MODAL ========== */
+/* Changes the background to solid color when messaging user */
+.wholemodal {
+    background-color: var(--bgcolor1);
+}
+
+.modal-body {
+    background-color: var(--bgcolor3);
+}
+
+.modalcss {
+    background-color: var(--bgcolor3);
+}
+
+.modal-header,
+.modal-footer {
+    background-color: var(--bgcolor2);
+
+}
+
+.modal-header {
+    border-bottom: 10px solid blueviolet;
+}
+
+/* fonts */
+.model-title,
+.model-body {
+    color: var(--bgcolor1);
+    font-weight: 800;
+}
+
+.modal-footer {
+    border-top: 3px solid blueviolet;
+}
+
+.modal-body input {
+    background-color: var(--bgcolor2);
+    border-color: blueviolet;
+}
+
+/* dash extra modal css */
+.dashmodalcss {
+    background-color: var(--bgcolor1);
+}
+
+.form-select {
+    background-color: var(--bgcolor2);
+    border-color: blueviolet;
+}
+
 /* ========== HOME PAGE ========== */
 .postsection {
     display: flex;
@@ -131,15 +181,16 @@ nav span:hover,
 
 .postcardheader {
     background-color: var(--bgcolor3);
-
 }
 
-.postcardheader a {
+.postcardheader a,
+.charheaderlink {
     color: var(--bgcolor1);
     text-decoration: none;
 }
 
-.postcardheader a:hover {
+.postcardheader a:hover,
+.charheaderlink:hover {
     transition: .5s;
     color: var(--bgcolor5);
 }
@@ -165,6 +216,12 @@ b {
 }
 
 /* ========== Dash Board ========== */
+.dashboard {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
 .dash-header {
     align-items: center;
     padding-left: 30px;
@@ -193,12 +250,13 @@ h3 {
 }
 
 .post-list {
+    width: 70vw;
     padding: 10px;
     border: 5px solid var(--bgcolor2);
     box-shadow: 5px 10px var(--bgcolor3);
     margin-left: 20px;
     background-color: var(--bgcolor4);
-    justify-content: left;
+    justify-content: center;
 }
 
 .new-post-form textarea {
@@ -270,10 +328,6 @@ h3 {
 .add-com {
     flex-direction: column;
 }
-
-/* .add-com textarea {
-    padding: 40px 70px;
-} */
 
 .update-post {
     padding: 10px;
@@ -358,4 +412,17 @@ footer span {
 .btn:hover {
     transition: .5s;
     background-color: var(--bgcolor5);
+}
+
+.closebtn {
+    width: 30px;
+    display: flex;
+    background-color: blueviolet;
+    border-color: var(--bgcolor2);
+    color: var(--bgcolor1);
+    font-weight: 900;
+}
+
+.clostbtn {
+    justify-content: center;
 }
