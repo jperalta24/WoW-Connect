@@ -1,6 +1,6 @@
 <div class="posts">
   {{#each post as |post|}}
-  <div class="postsection">
+  <div class="postsection ">
     <div class="card postcardcss">
       <div class="card-header postcardheader">
         <h2><a class="link" href="/dashboard/edit/{{post.id}}">{{post.name}}</a></h2>
@@ -18,7 +18,8 @@
       <div class="postbtnarea">
         <input type="hidden" name="post-id" value="{{post.id}}" />
         {{!-- <button class="btn postbtn" id="del-post-b">Respond</button> --}}
-        <button type="button" id="respond-b" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+        <button type="button" id="respond-b" class="btn btn-primary" data-bs-toggle="modal"
+          data-bs-target="#exampleModal">
           Message User
         </button>
 
@@ -26,33 +27,23 @@
     </div>
   </div>
   <!-- Modal -->
-  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal  fade wholemodal" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
     <div class="modal-dialog">
-      <div class="modal-content">
+      <div class="modal-content modalcss">
         <div class="modal-header">
           <h5 class="modal-title" id="exampleModalLabel">{{post.name}}</h5>
-          <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+          <button type="button" class="close btn closebtn" data-bs-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
         <div class="modal-body">
-           <div class="mb-3">
-                <label for="battleTag-input">Please enter your Email and Battle-Tag ID</label>
-                <input
-                  type="text"
-                  id="battleTag-input"
-                  class="form-control"
-                  placeholder="Enter Your Battle Tag ID"
-                  required
-                />
-                 <input
-                  type="text"
-                  id="email-input"
-                  class="form-control"
-                  placeholder="Enter Email"
-                  required
-                />
-              </div>
+          <div class="mb-3">
+            <label for="battleTag-input">Please enter your Email and Battle-Tag ID</label>
+            <input type="text" id="battleTag-input" class="form-control" placeholder="Enter Your Battle Tag ID"
+              required />
+            <input type="text" id="email-input" class="form-control" placeholder="Enter Email" required />
+          </div>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
