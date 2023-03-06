@@ -23,10 +23,8 @@ router.get('/:id', async (req, res) => {
             where: { id: req.params.id}
         });
         if (!postData){
-            res.status(400).json({message: 'Cannot find post'});
-        } else {
-            res.status(200).json(postData);
-        }
+            return res.status(400).json({message: 'Cannot find post'});
+        } res.render('singlepost', {post: postData.get({ plain: true })});
     } catch (err) {
         res.status(500).json({message: 'Error retrieving post data'});
     }

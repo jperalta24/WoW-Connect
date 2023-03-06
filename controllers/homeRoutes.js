@@ -1,13 +1,17 @@
 const router = require('express').Router();
 const { Character, Post, User } = require('../models/');
+const { format_date } = require('../utils/helper')
+const sendEmail = require('../utils/sendEmail');
+
 
 router.get('/', async (req, res) => {
     try {
       const postData = await Post.findAll({
+        order: [['date_created', 'DESC']],
        include: [
         {
           model: User,
-          attributes: ['battleTag']
+          attributes: ['email','battleTag']
         },
        ],
       });
@@ -22,6 +26,19 @@ router.get('/', async (req, res) => {
     }
   });
 
+router.post('/send-email', async (req, res) => {
+  const recipient = req.body.recipient;
+  const subject = req.body.battleTag;
+  const text = req.body.userMessage;
+
+  try {
+    await sendEmail(recipient, subject, text);
+    res.sendStatus(200);
+  } catch (err) {
+    res.status(500).send(error.message);
+  }
+});
+ 
   router.get('/post/:id', async (req, res) => {
     try {
       const postData = await Post.findOne({
