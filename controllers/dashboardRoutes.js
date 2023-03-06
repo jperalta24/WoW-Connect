@@ -23,7 +23,6 @@ router.get('/', async (req, res) => {
     const posts = postData.map((post) => post.get({ plain: true }));
     const characters = characterData.map((character) => character.get({ plain: true }));
     const user= userData.map((user) => user.get({ plain: true }));
-    console.log(posts, characters);
     // Render the dashboard template with the serialized data and session status
     res.render("dashboard", { posts, characters, user, loggedIn: req.session.loggedIn });
   } catch (err) {

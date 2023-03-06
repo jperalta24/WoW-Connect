@@ -12,13 +12,16 @@
           <li><b>Faction:</b> {{post.faction}}</li>
           <li><b>Role:</b> {{post.role}}</li>
           <li><b>Realm:</b> {{post.realm}}</li>
+          <p><b>{{post.date_created}}</b></p>
           <p><b>{{post.user.battleTag}}</b></p>
+
         </ul>
       </div>
       <div class="postbtnarea">
         <input type="hidden" name="post-id" value="{{post.id}}" />
         {{!-- <button class="btn postbtn" id="del-post-b">Respond</button> --}}
-        <button type="button" id="respond-b" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+        <button type="button" id="respond-b" class="btn btn-primary" data-bs-toggle="modal"
+          data-bs-target="#exampleModal">
           Message User
         </button>
 
@@ -29,6 +32,7 @@
   <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
+        <form id="postEmail">
         <div class="modal-header">
           <h5 class="modal-title" id="exampleModalLabel">{{post.name}}</h5>
           <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
@@ -36,30 +40,23 @@
           </button>
         </div>
         <div class="modal-body">
-           <div class="mb-3">
-                <label for="battleTag-input">Please enter your Email and Battle-Tag ID</label>
-                <input
-                  type="text"
-                  id="battleTag-input"
-                  class="form-control"
-                  placeholder="Enter Your Battle Tag ID"
-                  required
-                />
-                 <input
-                  type="text"
-                  id="email-input"
-                  class="form-control"
-                  placeholder="Enter Email"
-                  required
-                />
-              </div>
+          <div class="mb-3">
+            <h4 id="user-contact" class="invisible">{{post.user.email}}</h4>
+            <label for="battleTag-input">Please enter your Battle-Tag ID and a message</label>
+            <input type="text" id="battleTag-input" class="form-control" placeholder="Enter Your Battle Tag ID"
+              required />
+            <input type="text" id="message-input" class="form-control" placeholder="Enter Message" required />
+          </div>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
           <button type="submit" class="btn btn-primary" data-bs-dismiss="modal">Send</button>
         </div>
+        </form>
       </div>
     </div>
   </div>
   {{/each}}
 </div>
+
+<script src="/homepage.js" ></script>

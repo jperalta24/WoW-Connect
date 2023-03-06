@@ -3,6 +3,8 @@ const path = require('path');
 const routes = require('./controllers');
 const helpers = require('./utils/helper');
 const exphbs = require('express-handlebars');
+const nodemailer = require("nodemailer");
+
 
 const session = require('express-session');
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
@@ -39,8 +41,6 @@ app.engine('handlebars', hbs.engine);
 app.set('view engine', 'handlebars');
 
 
-
-
 // middleware
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -48,6 +48,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 // Set up for the routes
 app.use(routes);
+
 
 // sync sequelize models to the database, then turn on the server
 sequelize.sync({ force: false }).then(() => {

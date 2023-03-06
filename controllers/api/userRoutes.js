@@ -17,9 +17,9 @@ router.get("/", async (req, res) => {
 // post request to sign up a new user
 router.post("/signup", async (req, res) => {
   try {
-    console.log(req.body);
+   
     const newUser = await User.create({ email: req.body.email, password: req.body.password, battleTag: req.body.battleTag });
-    console.log(newUser);
+    
     req.session.save(() => {
       req.session.userId = newUser.id;
       req.session.email = newUser.email;
@@ -38,6 +38,7 @@ router.post("/login", async (req, res) => {
     const userData = await User.findOne({
       where: { email: req.body.email },
     });
+    
     if (!userData) {
       res.status(404).json({ message: "invalid email" });
       return;
@@ -49,7 +50,7 @@ router.post("/login", async (req, res) => {
     }
     req.session.save(() => {
       (req.session.userId = userData.id),
-        (req.session.email = userData.email),
+        // (req.session.email = userData.email),
         (req.session.loggedIn = true);
       res.status(200).json({ message: "logged in" });
     });

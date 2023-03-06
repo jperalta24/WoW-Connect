@@ -1,19 +1,23 @@
 const router = require('express').Router();
 const { Character, Post, User } = require('../models/');
+const { format_date } = require('../utils/helper')
+const sendEmail = require('../utils/sendEmail');
+const withAuth = require("../utils/auth");
+
 
 router.get('/', async (req, res) => {
     try {
       const postData = await Post.findAll({
+        order: [['date_created', 'DESC']],
        include: [
         {
           model: User,
-          attributes: ['battleTag']
+          attributes: ['email','battleTag']
         },
        ],
       });
   
       const post = postData.map((post) => post.get({ plain: true }));
-      console.log(post);
       res.render('homepage', { 
         post, loggedIn: req.session.loggedIn
       });
@@ -22,6 +26,19 @@ router.get('/', async (req, res) => {
     }
   });
 
+router.post('/send-email',async (req, res) => {
+  const recipient = req.body.recipient;
+  const subject = req.body.battleTag;
+  const text = req.body.userMessage;
+
+  try {
+    await sendEmail(recipient, subject, text);
+    res.status(200).json({message: 'Message sent!!'});
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+ 
   router.get('/post/:id', async (req, res) => {
     try {
       const postData = await Post.findOne({

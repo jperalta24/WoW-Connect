@@ -1,18 +1,18 @@
-const createPostHandler = async (event) => {
+const createCharacterHandler = async (event) => {
     event.preventDefault();
 
-    const name = document.querySelector('#postName-input').value.trim();
+    const characterName = document.querySelector('#postName-input').value.trim();
     const description = document.querySelector('#postDescription-input').value.trim();
     const realm = document.querySelector('#realmSelect').value.trim();
     const Class = document.querySelector('#classSelect').value.trim();
     const role = document.querySelector('#roleSelect').value.trim();
     const faction = document.querySelector('#factionSelect').value.trim()
-    console.log(name);
+    console.log(characterName);
 
-    if (name && description && Class && role && faction && realm) {
-        const response = await fetch('/api/post', {
+    if (characterName && description && Class && role && faction && realm) {
+        const response = await fetch('/api/character', {
             method: 'POST',
-            body: JSON.stringify({ name, description, class: Class, role, faction, realm }),
+            body: JSON.stringify({ characterName, description, class: Class, role, faction, realm }),
             headers: {
                 'Content-Type': 'application/json',
             }
@@ -29,10 +29,5 @@ const createPostHandler = async (event) => {
 
 
 
-let newPost = document.querySelector('#newPost-form');
-newPost.addEventListener('submit', createPostHandler);
-
-
-
-
-
+let newChar = document.querySelector('#newPost-form');
+newChar.addEventListener('submit', createCharacterHandler);
