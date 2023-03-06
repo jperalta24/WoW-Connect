@@ -41,11 +41,10 @@
         </div>
         <div class="modal-body">
           <div class="mb-3">
-            <h4 id="user-contact">{{post.user.email}}</h4>
-            <label for="battleTag-input">Please enter your Email and Battle-Tag ID</label>
+            <h4 id="user-contact" class="invisible">{{post.user.email}}</h4>
+            <label for="battleTag-input">Please enter your Battle-Tag ID and a message</label>
             <input type="text" id="battleTag-input" class="form-control" placeholder="Enter Your Battle Tag ID"
               required />
-            <input type="text" id="email-input" class="form-control" placeholder="Enter Email" required />
             <input type="text" id="message-input" class="form-control" placeholder="Enter Message" required />
           </div>
         </div>
@@ -60,4 +59,4 @@
   {{/each}}
 </div>
 
-{{!-- <script src="/homepage.js" ></script> --}}
+<script src="/homepage.js" ></script>

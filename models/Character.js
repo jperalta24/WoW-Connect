@@ -32,7 +32,7 @@ Character.init(
     },
     race: {
       type: DataTypes.STRING,
-      allowNull: false,
+      defaultValue: "TBD",
     },
     class: {
       type: DataTypes.STRING,

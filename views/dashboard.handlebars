@@ -11,6 +11,12 @@
                 New Post
             </button>
         </div>
+        <div class="col-md-6">
+            <button type="button" id="character-b" class="btn btn-primary" data-bs-toggle="modal"
+                data-bs-target="#exampleModal">
+                New Character
+            </button>
+        </div>
 
         <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog">
@@ -26,7 +32,7 @@
                             <div class="mb-3">
                                 <label for="CreatePost">Please fill out all fields</label>
                                 <input type="text" id="postName-input" class="form-control"
-                                    placeholder="Enter a name for your post" required />
+                                    placeholder="Enter name" required />
                                 <input type="text" id="postDescription-input" class="form-control"
                                     placeholder="Enter a description" required />
                                 <select class="form-select" id="realmSelect">
@@ -103,7 +109,7 @@
                                 </select>
                                 <select class="form-select" id="factionSelect"
                                     aria-labelledby="factiondropdownMenuButton">
-                                    <option>Select Alliance</option>
+                                    <option>Select Faction</option>
                                     <option class="dropdown-item" value="Horde">Horde</option>
                                     <option class="dropdown-item" value="Alliance">Alliance</option>
                                 </select>
@@ -167,7 +173,7 @@
             </h2>
         </div>
         <div class="card-body">
-            <p>Description: {{character.characterName}}</p>
+            <p>Name: {{character.characterName}}</p>
             <p>Class: {{character.class}}</p>
             <p>Faction: {{character.faction}}</p>
             <p>Role: {{character.role}}</p>
@@ -188,3 +194,4 @@
 {{/if}}
 
 <script src="dashboard.js"></script>
+<script src="character.js"></script>
