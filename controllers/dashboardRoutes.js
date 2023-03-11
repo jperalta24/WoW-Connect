@@ -1,12 +1,15 @@
 const router = require('express').Router();
 const { User, Post, Character } = require('../models/');
 const withAuth = require('../utils/auth');
+const { realms, classes, roles, factions } = require('../utils/modals');
+
 // -- Add withAuth
 router.get('/', async (req, res) => {
   try {
     // Fetch all posts for the logged-in user
     const postData = await Post.findAll({
       where: { user_id: req.session.userId },
+      order: [['date_created', 'DESC']],
       include: [{ model: User, attributes: ["battleTag"] }],
     });
 
@@ -16,15 +19,15 @@ router.get('/', async (req, res) => {
     })
 
     const userData = await User.findAll({
-      where: { id: req.session.userId}
+      where: { id: req.session.userId }
     })
 
     // Serialize the data
     const posts = postData.map((post) => post.get({ plain: true }));
     const characters = characterData.map((character) => character.get({ plain: true }));
-    const user= userData.map((user) => user.get({ plain: true }));
+    const user = userData.map((user) => user.get({ plain: true }));
     // Render the dashboard template with the serialized data and session status
-    res.render("dashboard", { posts, characters, user, loggedIn: req.session.loggedIn });
+    res.render("dashboard", { posts, characters, realms, classes, roles, factions, user, loggedIn: req.session.loggedIn });
   } catch (err) {
     res.redirect('login')
   }

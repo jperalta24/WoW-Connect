@@ -1,18 +1,18 @@
 const createCharacterHandler = async (event) => {
     event.preventDefault();
 
-    const characterName = document.querySelector('#postName-input').value.trim();
-    const description = document.querySelector('#postDescription-input').value.trim();
-    const realm = document.querySelector('#realmSelect').value.trim();
-    const Class = document.querySelector('#classSelect').value.trim();
-    const role = document.querySelector('#roleSelect').value.trim();
-    const faction = document.querySelector('#factionSelect').value.trim()
-    console.log(characterName);
+    const characterName = document.querySelector('#charName-input').value.trim();
+    // const description = document.querySelector('#postDescription-input').value.trim();
+    const realm = document.querySelector('#charRealm').value.trim();
+    const Class = document.querySelector('#charClass').value.trim();
+    const role = document.querySelector('#charRole').value.trim();
+    const faction = document.querySelector('#charFaction').value.trim()
+    console.log(characterName, realm, role, faction);
 
-    if (characterName && description && Class && role && faction && realm) {
+    if (characterName && Class && role && faction && realm) {
         const response = await fetch('/api/character', {
             method: 'POST',
-            body: JSON.stringify({ characterName, description, class: Class, role, faction, realm }),
+            body: JSON.stringify({ characterName, class: Class, role, faction, realm }),
             headers: {
                 'Content-Type': 'application/json',
             }
@@ -21,7 +21,7 @@ const createCharacterHandler = async (event) => {
         if (response.ok) {
             document.location.reload();
         } else {
-            alert('failed to create a new post')
+            alert('failed to create a new character')
         }
     }
 };
@@ -29,5 +29,5 @@ const createCharacterHandler = async (event) => {
 
 
 
-let newChar = document.querySelector('#newPost-form');
+let newChar = document.querySelector('#newChar-form');
 newChar.addEventListener('submit', createCharacterHandler);

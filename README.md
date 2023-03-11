@@ -30,7 +30,7 @@ The purpose of this project was to show we could successfully build an applicati
 ### Links
 
 - Solution URL: (https://github.com/jperalta24/WoW-Connect)
-- Live Site URL: [Add live site URL here](https://your-live-site-url.com)
+- Live Site URL: [Add live site URL here](https://obscure-falls-87878.herokuapp.com/)
 
 ## The process
 
