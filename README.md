@@ -65,3 +65,5 @@ In the future We would love to have the ability to add character photos and be a
 ## Acknowledgments
 
 We would like to acknowledge the great support we received from the class tutors, who helped us navigate through various issues. We also received support through outside tutors. Finally we had strong documentation to rely on. We were able to gather ideas from our class materials, and also nodemailer documentation for our added technology. 
+
+- A thanks to [Blizzard](https://www.blizzard.com/en-us/legal/28d5ebbf-c245-4408-8ba9-043dd5f056bf/legal-faq#1649365241) For the images.

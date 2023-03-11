@@ -11,7 +11,7 @@
     padding: 0;
 }
 
-html,
+/* html, */
 body {
     background-image: url('../Images/WOW-HD-Wallpaper-Free-download.jpg');
     background-repeat: no-repeat;
@@ -73,7 +73,7 @@ nav span:hover,
 .signup {
     padding: 15px;
     border: 5px solid var(--bgcolor2);
-    box-shadow: 5px 10px var(--bgcolor3);
+    /* box-shadow: 5px 10px var(--bgcolor3); */
     background-color: var(--bgcolor4);
     width: 40%;
 
@@ -123,8 +123,8 @@ nav span:hover,
     display: flex;
     justify-content: center;
     margin-bottom: 20px;
-
 }
+
 
 .postcardcss {
     width: 50vw;
@@ -191,7 +191,7 @@ h3 {
 .create-post {
     padding: 10px;
     border: 5px solid var(--bgcolor2);
-    box-shadow: 5px 10px var(--bgcolor3);
+    /* box-shadow: 5px 10px var(--bgcolor3); */
     background-color: var(--bgcolor4);
     justify-content: left;
 }
@@ -199,10 +199,29 @@ h3 {
 .post-list {
     padding: 10px;
     border: 5px solid var(--bgcolor2);
-    box-shadow: 5px 10px var(--bgcolor3);
     margin-left: 20px;
-    background-color: var(--bgcolor4);
-    justify-content: left;
+    background-color: rgb(0, 3, 55, 0.5);
+    
+}
+
+/* Style the scrollbar */
+.post-list::-webkit-scrollbar {
+    width: 10px;
+}
+
+/* Track */
+.post-list::-webkit-scrollbar-track {
+    background: #121212;
+}
+
+/* Handle */
+.post-list::-webkit-scrollbar-thumb {
+    background: #5e5e5e;
+}
+
+/* Handle on hover */
+.post-list::-webkit-scrollbar-thumb:hover {
+    background: #fff;
 }
 
 .new-post-form textarea {
@@ -241,7 +260,7 @@ h3 {
     padding: 20px;
     color: var(--bgcolor2);
     border: 5px solid var(--bgcolor2);
-    box-shadow: 5px 10px var(--bgcolor3);
+    /* box-shadow: 5px 10px var(--bgcolor3); */
     background-color: var(--bgcolor4);
 }
 
@@ -265,7 +284,7 @@ h3 {
 .add-comment {
     padding: 10px;
     border: 5px solid var(--bgcolor2);
-    box-shadow: 5px 10px var(--bgcolor3);
+    /* box-shadow: 5px 10px var(--bgcolor3); */
     margin-left: 10px;
     background-color: var(--bgcolor4);
     justify-content: left;
@@ -283,7 +302,7 @@ h3 {
     padding: 10px;
     margin-right: 10px;
     border: 5px solid var(--bgcolor2);
-    box-shadow: 5px 10px var(--bgcolor3);
+    /* box-shadow: 5px 10px var(--bgcolor3); */
     background-color: var(--bgcolor4);
     justify-content: left;
 }
@@ -323,17 +342,11 @@ h3 {
 
 /* ========== Footer ========== */
 
-
-
-
-.foot {
-    background-color: var(--bgcolor4);
-    width: 100%;
+footer{
+    background-color: rgb(40, 49, 64);
 }
 
-footer span {
-    color: var(--bgcolor2);
-}
+
 
 
 
