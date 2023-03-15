@@ -24,13 +24,13 @@ The purpose of this project was to show we could successfully build an applicati
 
 ### Screenshot
 
-![](./public/Images/Screenshot%202023-03-05%20174629.png)
-![](./public/Images/Screenshot%202023-03-05%20174744.png)
+![](./public/Images/Screenshot%202023-03-14%20174745.png)
+
 
 ### Links
 
 - Solution URL: (https://github.com/jperalta24/WoW-Connect)
-- Live Site URL: [Add live site URL here](https://obscure-falls-87878.herokuapp.com/)
+- Live Site URL: [Wow-Connect](https://obscure-falls-87878.herokuapp.com/)
 
 ## The process
 
@@ -59,7 +59,7 @@ In the future We would love to have the ability to add character photos and be a
 
 ## Authors
   Jonathan Peralta, Shane Pearson, Johann Kubeja, Spencer Carlson
-- Website - [your name or website url](https://www.your-site.com)
+- Website - [Wow-Connect](https://obscure-falls-87878.herokuapp.com/)
 - GitHub (https://github.com/jperalta24/WoW-Connect)
 
 ## Acknowledgments
